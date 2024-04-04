@@ -1,90 +1,152 @@
 * {
     margin: 0;
-    font-family: Arail, cwTeXMing;
+    font-family: "cwTeXMing", Arail;
 }
 
 .logo {
-    border: 3px solid #aaf;
+    /* border: 3px solid #aff; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 30vh; */
+    /* height: 100vh; */
+    height: 100vh;
+    transition: all .7s ease;
+
+    img {
+        height: 40%;
+        margin: 80px 0 50px;
+        animation: heartBeat 1s ease infinite 0s;
+        cursor: pointer;
+        transition: all .7s ease;
+    }
+
+    :nth-child(2) {
+        font-size: 30px;
+        transition: all .7s ease;
+    }
+
+    /* 用p:nth-child(3)的話，若其父元素的第三個子元素是p，則會選到他。 */
+    /* 但因為上一行有<strong>，好像子元素個數的計算(也沒搞清楚是如何錯亂法)，故用不特指定元素種類的方法 */
+    :nth-child(3) {
+        font-size: 20px;
+        transition: all, .7s ease;
+    }
 }
 
-.logo img {
-    width: 90px;
+/* copy from https://codepen.io/kazsaj/pen/AxZXvv */
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.1);
+    }
+
+    25% {
+        transform: scale(1.05);
+    }
+
+    35% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-.logo p:nth-child(1) {}
+.logo-upper {
+    /* border: 3px solid #aaf; */
+    height: 18vh;
 
-/* .page {
-    border: 3px solid #faa;
-    position: relative;
-    /* 供absolute定位用 
-} */
+    img {
+        margin: 0 0 10px;
+    }
+
+    :nth-child(2) {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    :nth-child(3) {
+        font-size: 9px;
+    }
+}
+
 
 .person-intro {
-    border: 3px solid #f00;
+    /* border: 3px solid #f00; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .item {
+        /* border: 3px solid #0f0; */
+        display: flex;
+        align-items: center;
+        width: 70%;
+    }
+
+    /* class "right"疑似在sematic-ui中已被定義，未定義就會有某些預設行為，故另立class */
+    .item-right {
+        flex-direction: row-reverse;
+    }
+
+    .item .pic {
+        /* border: 3px solid #00f; */
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-position: 50% 50%;
+        transition: all .3s ease 0s;
+    }
+
+    /* .item .pic:hover {
+        transform: scale(1.8);
+    } */
+
+    .item img {
+        /* border: 3px solid #0af; */
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .item .intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .item-right .intro {
+        align-items: flex-end;
+    }
+
+    .intro p:nth-child(1) {
+        /* border: 3px solid #00f; */
+        width: 15%;
+        min-width: 140px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .intro p:nth-child(2) {
+        /* border: 3px solid #00f; */
+        width: 550px;
+        font-size: 12px;
+        margin-bottom: 0px;
+    }
 }
 
-.item {
-    border: 3px solid #0f0;
-    display: flex;
-    align-items: center;
-    width: 80%;
-}
 
-/* class "right"疑似在sematic-ui中已被定義，未定義就會有某些預設行為，故另立class */
-.item-right {
-    flex-direction: row-reverse;
-}
-
-.item .pic {
-    border: 3px solid #00f;
-    width: 100px;
-    height: 100px;
-    background-position: center;
-}
-
-.item img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.item .intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* font-size: 0px; */
-}
-
-.item-right .intro {
-    align-items: flex-end;
-}
-
-.intro p:nth-child(1) {
-    border: 3px solid #00f;
-    width: 15%;
-    min-width: 100px;
-    font-size: 12px;
-}
-
-.intro p:nth-child(2) {
-    border: 3px solid #00f;
-    width: 80%;
-    font-size: 12px;
-}
 
 .group-intro {
-    border: 3px solid #f00;
+    /* border: 3px solid #f00; */
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 }
